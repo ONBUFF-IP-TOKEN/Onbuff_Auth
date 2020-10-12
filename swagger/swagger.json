@@ -1,0 +1,320 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Buff REST API",
+      "description": "Buff Oauth & Account 관련 Document 입니다.",
+      "version": "1.0",
+      "contact":{"email":"jinwshin@onbuff.com"}
+    },
+    "produces": ["application/json"],
+    "schemes":["http","ready for https"],
+    "paths": {
+        "/api/account/create": {
+            "post": {
+                "x-swagger-router-controller": "/api/account/create",
+                "operationId": "8",
+                "tags": ["ACCOUNT"],
+                "description": "request new account",
+                "parameters": [
+                    {
+                        "name" : "user_id",
+                        "in" : "formData",
+                        "type" : "user id",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_pwd",
+                        "in" : "formData",
+                        "type" : "user pwd",
+                        "items" : { "type" : "string" }
+                    },                    {
+                        "name" : "birthday",
+                        "in" : "formData",
+                        "type" : "birthday",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_nick",
+                        "in" : "formData",
+                        "type" : "user nick",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_phone_num",
+                        "in" : "formData",
+                        "type" : "user phone number( exclude '-')",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_sex",
+                        "in" : "formData",
+                        "type" : "user sex ( male or female )",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/account/check_nick_duplicate": {
+            "post": {
+                "x-swagger-router-controller": "/api/account/check_nick_duplicate",
+                "operationId": "9",
+                "tags": ["ACCOUNT"],
+                "description": "request check duplicate user nickname",
+                "parameters": [
+                    {
+                        "name" : "user_nick",
+                        "in" : "formData",
+                        "type" : "user nick",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/account/update": {
+            "post": {
+                "x-swagger-router-controller": "/api/account/update",
+                "operationId": "10",
+                "tags": ["ACCOUNT"],
+                "description": "request update account",
+                "parameters": [
+                    {
+                        "name" : "user_id",
+                        "in" : "formData",
+                        "type" : "user id",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_pwd",
+                        "in" : "formData",
+                        "type" : "user pwd",
+                        "items" : { "type" : "string" }
+                    },                    {
+                        "name" : "birthday",
+                        "in" : "formData",
+                        "type" : "birthday",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_nick",
+                        "in" : "formData",
+                        "type" : "user nick",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_phone_num",
+                        "in" : "formData",
+                        "type" : "user phone number( exclude '-')",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_sex",
+                        "in" : "formData",
+                        "type" : "user sex ( male or female )",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/account/remove": {
+            "post": {
+                "x-swagger-router-controller": "/api/account/remove",
+                "operationId": "11",
+                "tags": ["ACCOUNT"],
+                "description": "request remove account",
+                "parameters": [
+                    {
+                        "name" : "user_id",
+                        "in" : "formData",
+                        "type" : "user id",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_pwd",
+                        "in" : "formData",
+                        "type" : "user pwd",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/oauth/new_key_pair": {
+            "post": {
+                "x-swagger-router-controller": "/api/oauth/new_key_pair",
+                "operationId": "1",
+                "tags": ["Oauth"],
+                "description": "request new key/secret",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "type": "oauth type",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/oauth/get_auth_token_new": {
+            "post": {
+                "x-swagger-router-controller": "/api/oauth/get_auth_token_new",
+                "operationId": "2",
+                "tags": ["Oauth"],
+                "description": "request new auth token",
+                "parameters": [
+                    {
+                        "name" : "user_id",
+                        "in" : "formData",
+                        "type" : "USER ID",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "user_pwd",
+                        "in" : "formData",
+                        "type" : "USER PASSWORD",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "app_key",
+                        "in" : "formData",
+                        "type" : "APP KEY",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "app_secret",
+                        "in" : "formData",
+                        "type" : "APP SECRET",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/oauth/get_auth_token_renew": {
+            "post": {
+                "x-swagger-router-controller": "/api/oauth/get_auth_token_renew",
+                "operationId": "3",
+                "tags": ["Oauth"],
+                "description": "request renew auth token",
+                "parameters": [
+                    {
+                        "name" : "app_key",
+                        "in" : "formData",
+                        "type" : "APP KEY",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "app_secret",
+                        "in" : "formData",
+                        "type" : "APP SECRET",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "refresh_token",
+                        "in" : "formData",
+                        "type" : "REFRES TOKEN",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/oauth/get_auth_token_end": {
+            "post": {
+                "x-swagger-router-controller": "/api/oauth/get_auth_token_end",
+                "operationId": "4",
+                "tags": ["Oauth"],
+                "description": "request close auth token",
+                "parameters": [
+                    {
+                        "name" : "access_token",
+                        "in" : "formData",
+                        "type" : "ACCESS TOKEN",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/oauth/get_auth_token_new_app": {
+            "post": {
+                "x-swagger-router-controller": "/api/oauth/get_auth_token_new_app",
+                "operationId": "5",
+                "tags": ["Oauth For 3rd party App"],
+                "description": "request new auth token for 3rd party App",
+                "parameters": [
+                    {
+                        "name" : "app_key",
+                        "in" : "formData",
+                        "type" : "APP KEY for 3rd party App",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "app_secret",
+                        "in" : "formData",
+                        "type" : "APP SECRET for 3rd party App",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "parent_access_token",
+                        "in" : "formData",
+                        "type" : "ACCESS TOKEN of OAuth",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/oauth/get_auth_token_renew_app": {
+            "post": {
+                "x-swagger-router-controller": "/api/oauth/get_auth_token_renew_app",
+                "operationId": "6",
+                "tags": ["Oauth For 3rd party App"],
+                "description": "request renew auth token for 3rd party App",
+                "parameters": [
+                    {
+                        "name" : "app_key",
+                        "in" : "formData",
+                        "type" : "APP KEY for 3rd party App",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "app_secret",
+                        "in" : "formData",
+                        "type" : "APP SECRET for 3rd party App",
+                        "items" : { "type" : "string" }
+                    },
+                    {
+                        "name" : "refresh_token",
+                        "in" : "formData",
+                        "type" : "REFRES TOKEN for 3rd party App",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/oauth/get_auth_token_end_app": {
+            "post": {
+                "x-swagger-router-controller": "/api/oauth/get_auth_token_end_app",
+                "operationId": "7",
+                "tags": ["Oauth For 3rd party App"],
+                "description": "request close auth token for 3rd party App",
+                "parameters": [
+                    {
+                        "name" : "access_token",
+                        "in" : "formData",
+                        "type" : "ACCESS TOKEN of 3rd party App",
+                        "items" : { "type" : "string" }
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    }
+ }
